@@ -26,12 +26,10 @@ def main():
         upper_yellow = np.array([255,255,10])
 
         yellow_mask = cv2.inRange(image,lower_yellow,upper_yellow)
-        highlighted_markers = cv2.bitwise_and(image,image,yellow_mask)
+        image = cv2.bitwise_and(image,image,yellow_mask)
         # show image
 
-        result_img = highlighted_markers
-
-        cv2.imshow(WINDOW, result_img)
+        cv2.imshow(WINDOW, image)
         cv2.waitKey(1)
 
 
