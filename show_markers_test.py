@@ -22,7 +22,7 @@ def main():
         if image is None:
             continue
         
-        lower_yellow = np.array([200,200,0])
+        lower_yellow = np.array([100,100,0])
         upper_yellow = np.array([255,255,50])
 
         yellow_mask = cv2.inRange(image,lower_yellow,upper_yellow)
