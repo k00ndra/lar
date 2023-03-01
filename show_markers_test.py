@@ -22,14 +22,14 @@ def main():
         if image is None:
             continue
         
-        lower_yellow = np.array([230,230,0])
+        lower_yellow = np.array([255,255,0])
         upper_yellow = np.array([255,255,10])
 
         yellow_mask = cv2.inRange(image,lower_yellow,upper_yellow)
-        image = cv2.bitwise_and(image,image,yellow_mask)
+        #image = cv2.bitwise_and(image,image,yellow_mask)
         # show image
-
-        cv2.imshow(WINDOW, image)
+        img = np.zeros([480,640,3])
+        cv2.imshow(WINDOW, img)
         cv2.waitKey(1)
 
 
