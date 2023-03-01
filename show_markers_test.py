@@ -9,7 +9,7 @@ WINDOW = 'markers'
 
 def main():
 
-    turtle = Turtlebot(rgb=True,pc = True)
+    turtle = Turtlebot(rgb=True)
     turtle.play_sound(sound_id = 0)
     cv2.namedWindow(WINDOW)
 
