@@ -28,7 +28,10 @@ def main():
         yellow_mask = cv2.inRange(image,lower_yellow,upper_yellow)
         highlighted_markers = cv2.bitwise_and(image,image,yellow_mask)
         # show image
-        cv2.imshow(WINDOW, highlighted_markers)
+
+        result_img = image-highlighted_markers
+
+        cv2.imshow(WINDOW, result_img)
         cv2.waitKey(1)
 
 
