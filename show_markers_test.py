@@ -29,7 +29,7 @@ def main():
         #image = cv2.bitwise_and(image,image,yellow_mask)
         # show image
         img = np.zeros([480,640,3])
-        yellow_points = (image[:,:,1]>=200) and (image[:,:,2]>200) and (image[:,:,3]<20)
+        #yellow_points = np.all() (image[:,:,1]>=200) and (image[:,:,2]>200) and (image[:,:,3]<20)
         img[yellow_points] = image[yellow_points]
         cv2.imshow(WINDOW, img)
         cv2.waitKey(1)
