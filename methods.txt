@@ -1,0 +1,35 @@
+get_rgb_image() -> image
+
+Returns RGB image as 480x640x3 Numpy array. In order to use RGB images initialize Turtlebot
+class with rgb stream i.e. Turtlebot(rgb=True)
+
+get_depth_image() -> image
+
+Returns depth image as a 480x640x1 Numpy array, the depth is in meters. In order to use depth images initialize
+Turtlebot class with depth stream i.e. Turtlebot(depth=True)
+
+get_point_cloud() -> point_cloud
+
+Returns point cloud in form of a 480x640x3 Numpy array. Values are in meters and in the coordinate system of
+the camera. In order to use point cloud initialize Turtlebot class with pc stream i.e. Turtlebot(pc=True)
+
+play_sound(sound_id=0) -> None
+
+Plays one of predefined sounds: (0 - turn on, 1 - turn off, 2 - recharge start, 3 - press button,
+4 - error sound, 5 - start cleaning, 6 - cleaning end).
+
+register_button_event_cb(fun) -> None
+
+Register callback for the button event, when the button is pressed the fun is called.
+The fun callback should have form of a function with one argument button_cb(event),
+the event object has two variables event.button which stores the number of button that
+producing this event and event.state which stores the event type (0:released, 1:pressed).
+The event object is actually ROS message kobuki_msgs/ButtonEvent.
+register_bumper_event_cb(fun) -> None
+
+Register callback for the bumper event, when the robot hits something the fun is called.
+The fun callback should have form of a function with one argument bumper_cb(event), the
+event object has two variables event.bumper which stores the bumper number (0:left, 1:center,
+2:right) and event.state which stores the event type (0:released, 1:pressed). The event object
+is actually ROS message kobuki_msgs/BumperEvent.  Do not hit anything!
+

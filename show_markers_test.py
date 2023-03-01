@@ -10,6 +10,7 @@ WINDOW = 'markers'
 def main():
 
     turtle = Turtlebot(rgb=True,pc = True)
+    turtle.play_sound(sound_id = 3)
     cv2.namedWindow(WINDOW)
 
     while not turtle.is_shutting_down():
