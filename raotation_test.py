@@ -1,4 +1,4 @@
-from robolab_turlebot import Turtlebot,Rate,get_time
+from robolab_turtlebot import Turtlebot,Rate,get_time
 
 turle = Turtlebot()
 refresh_rate = 10 #Hz
@@ -12,7 +12,7 @@ while get_time() - start_time <time_limit:
     turle.cmd_velocity(angular = angular_speed)
     rate.sleep()
 
-    
+
 
 
 
