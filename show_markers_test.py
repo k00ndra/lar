@@ -10,7 +10,6 @@ WINDOW = 'markers'
 def main():
 
     turtle = Turtlebot(rgb=True)
-    turtle.play_sound(sound_id = 0)
     cv2.namedWindow(WINDOW)
 
     while not turtle.is_shutting_down():
@@ -22,15 +21,15 @@ def main():
         if image is None:
             continue
         
-        lower_yellow = np.array([255,255,0])
-        upper_yellow = np.array([255,255,10])
+        lower_yellow = np.array([0,230,230])
+        upper_yellow = np.array([80,255,255])
 
         yellow_mask = cv2.inRange(image,lower_yellow,upper_yellow)
         #image = cv2.bitwise_and(image,image,yellow_mask)
         # show image
         img = np.zeros([480,640,3])
         #yellow_points = np.all() (image[:,:,1]>=200) and (image[:,:,2]>200) and (image[:,:,3]<20)
-        img[yellow_points] = image[yellow_points]
+        img[yellow_mask] = image[yellow_mask]
         cv2.imshow(WINDOW, img)
         cv2.waitKey(1)
 

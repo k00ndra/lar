@@ -1,5 +1,5 @@
 from __future__ import print_function
-
+import cv2
 from datetime import datetime
 
 from robolab_turtlebot import Turtlebot, sleep
@@ -16,12 +16,15 @@ sleep(2)
 data = dict()
 data['K_rgb'] = turtle.get_rgb_K()
 data['K_depth'] = turtle.get_depth_K()
-data['image_rgb'] = turtle.get_rgb_image()
+data['image_rgb'] = cv2.cvtColor(turtle.get_rgb_image(),cv2.COLOR_BGR2RGB)
 data['image_depth'] = turtle.get_depth_image()
 data['point_cloud'] = turtle.get_point_cloud()
 
 # save data to .mat file
-filename = datetime.today().strftime("%Y-%m-%d-%H-%M-%S") + ".mat"
-savemat(filename, data)
+filename = datetime.today().strftime("%Y-%m-%d-%H-%M-%S")
+savemat(filename+"_rgb.mat", data)
+
+#save hsv:
+data['image_rgb'] = cv2.cvtColor(data['image_rgb'],cv2.COLOR_BGR2HSV)
 
 print('Data saved in {}'.format(filename))

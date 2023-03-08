@@ -1,0 +1,11 @@
+pouzit HSV -> segmetovat podle H
+!!! pozor - cyklickost cervene barvy -> prahovat do 179 a od 0
+prahovat i podle jasu -- cerne kouty nema cenu segmentovat - nevycteme barvu
++prahovat i podle saturace -- barevne sloupky jsou hodne saturovane
+
+
+pouzit connected components with stats -> vyfiltrovat malo obsahle komponenty (lze nastavit segmentaci mirneji) = plocha
+	stred/tesizte , nejvyssi, nejnizzsi bod
+	!!! index 0 = pozadi
+	
+
