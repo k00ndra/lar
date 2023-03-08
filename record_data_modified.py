@@ -26,5 +26,6 @@ savemat(filename+"_rgb.mat", data)
 
 #save hsv:
 data['image_rgb'] = cv2.cvtColor(data['image_rgb'],cv2.COLOR_BGR2HSV)
+savemat(filename+"_hsv.mat", data)
 
 print('Data saved in {}'.format(filename))
