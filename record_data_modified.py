@@ -17,7 +17,7 @@ def bumper_cb(msg):
     data['point_cloud'] = turtle.get_point_cloud()
 
     # save data to .mat file
-    filename = datetime.today().strftime("%Y-%m-%d-%H-%M-%S")
+    filename = datetime.today().strftime("./images/%Y-%m-%d-%H-%M-%S")
     savemat(filename+"_rgb.mat", data)
 
     #save hsv:
